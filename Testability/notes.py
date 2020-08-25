@@ -188,12 +188,75 @@ subroutines (functions) covered by a test suite.
 * Code coverage can be tested using py.test, nose2 and coverage package, all can be installed as thirdy party packages
 using pip.
 
-* 
+-------------------
+INTEGRATION TESTS
+-------------------
 
+* Each component may have defined its own unit test, it is also important to verify the combined functionality of the 
+system by writing integration tests.
+
+* Integration tests are usually written after unit testing is completed, and before
+validation testing is done.
+
+* Advantage of the integration tests
+    
+    * Testing components interoperability.
+    
+    * Testing for system requirement modifications.
+    
+    * Testing external dependencies and APIs. (Stubs are static, while mocks are determined at the run-time)
+    
+    * Debugging hardware issues : helpful in getting information on hardware problems, and debugging such tests gives
+                                  the developer data about whether an update or change in the hardware configuration is
+                                  required.
+    
+    * Uncovering exceptions in the code path : Higher code coverage with integrated components can open up the scope for
+                                               identifying new bugs and exception cases which unit testing couldn't find
+                                               out.
+    
+* Three approaches to write integration tests : 
+    
+    * Bottom-up : Low level unit testing done and then test results are used to integrate tests of the higher-level 
+                  components in the chain. In this approach, critical modules at the top of the hierarchy may be tested
+                  inadequately.
+    
+    * Top-down : Components at the top level of the hierarchy are tested first and the lower-level modules are 
+                 tested last. In this approach, critical modules are tested on priority, so we can identify major 
+                 design or development flaws first and fix them.
+                 
+                 Lower-level modules can be replaced by Stubs which mock their functionality. Early prototypes are 
+                 possible in this approach, as lower-level module logic can be stubbed out.
+    
+    * Big-Bang : This is the approach is one where all the components are integrated and tested at the very end of 
+                 development. Since the integration tests come at the end, this approach saves time for development. 
+                 However, this may not give enough time to test critical modules, as there may not be enough time to 
+                 spend equally on all the components.
+
+* Testing automation can be achieved using selenium.[Read offical documentation for the details]
 
 """
 
+# TEST-DRIVEN DEVELOPMENT
 
+"""
+
+* An agile practice of software development, which uses a very short development cycle, where code is written 
+  to satisfy an incremental test case.
+
+* In TDD, a functional requirement is mapped to a specific test case. Code is written to pass the first test case. 
+  Any new requirement is added as a new test case. Code is refactored to support the new test case. The process 
+  continues till the code is able to support the entire spectrum of user functionality.
+
+* Steps : 
+
+    1. Write first unit test case.
+    2. Test the code.
+    3. If passes done else refactor the code.
+    4. Add a new test case.
+    5. Repeat the steps 2 and 3.
+    6. Repeat 4 and 5.
+
+"""
 
 
 
