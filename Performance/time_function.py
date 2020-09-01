@@ -17,32 +17,30 @@ def common_items():
             common.append(item)
 
 
+def test_function():
+
+    list_time = []
+    for _ in range(10):
+        start = time.time()
+        common_items()
+        end = time.time()
+        list_time.append(end - start)
+    return sum(list_time)/(len(list_time))
+
+
 if __name__ == "__main__":
 
     # Time the function with input of size 100 elements
     setup(100)
-    list_time = []
-    for i in range(10):
-        start = time.time()
-        common_items()
-        end = time.time()
-        list_time.append(end - start)
-    print(sum(list_time)/(len(list_time)))
+    val = test_function()
+    print(val)
 
     # Time the function with input of size 1000 elements
     setup(1000)
-    for i in range(10):
-        start = time.time()
-        common_items()
-        end = time.time()
-        list_time.append(end - start)
-    print(sum(list_time)/(len(list_time)))
+    val = test_function()
+    print(val)
 
     # Time the function with input of size 10000 elements
     setup(10000)
-    for i in range(10):
-        start = time.time()
-        common_items()
-        end = time.time()
-        list_time.append(end - start)
-    print(sum(list_time)/(len(list_time)))
+    val = test_function()
+    print(val)
