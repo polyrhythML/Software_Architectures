@@ -129,4 +129,61 @@ Ways to solve the problem :
 
 # MULTI-PROCESSING VERSUS MULTI-THREADING
 
+"""
 
+Use of multithreading : 
+
+* When the program needs to maintain alot of shared states.
+
+* The program spends alot of time doing I/O. Since the GIL is not released by threads doing I/O, it doesn't affect the
+time taken by the threads to perform I/O.
+
+* Not much of data parallel operations.
+
+Use of multiprocessing : 
+
+* Alot of CPU bound heavy operations.
+
+* Inputs to the program can be parallelized into chunks and whose results can be combined afterwards.
+
+* Multicore CPU machine.
+
+* Not much shared mutable states between the machines.
+
+"""
+
+# ASYNCHRONOUS EXECUTION
+
+"""
+
+* Asynchronous model of execution - time sharing between jobs in a queue. 
+
+* No order of the tasks in an interleaved manner. There is no guarantee that the tasks will be executed in
+any specific manner.
+
+* Asynchronous executions have with cooperative multitasking.
+
+* Happens over a single thread only.
+
+* Return the results using callbacks.
+
+* Python provides such support for asynchronous execution using asyncio module.
+
+"""
+
+# PRE-EMPTIVE MULTI-TASKING AND CO-OPERATIVE MULTI-TASKING
+
+"""
+
+* Pre-emptive - fair share of time given to each of the thread and the scheduling and switching is done by the 
+operating system only.
+
+* Cooperative - A top level thread control the execution of the other threads, it is explicitly handled.
+
+* Asyncio helps us write code in this fashion of cooperative multitasking.
+
+* Co - routines - functions used in the async.
+    
+    * schedules the objects in an event loop and schedules them as tasks.
+
+"""
